@@ -7,9 +7,8 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "node ./src/app.js",
-    "start_dev": "concurrently \"npm run server\" \"npm run client\"",
-    "client": "cd frontend && npm start_dev",
+    "start_app": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd frontend && npm start",
     "server": "nodemon src/app.js"
   },
   "keywords": [],

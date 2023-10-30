@@ -268,13 +268,13 @@ if (!token) return res.status(401).json({ error: "Acesso negado!" });
 }
 
 //DATABASE
-const port = process.env.PORT || 3001;
+const baseurl = "https://api-login-library-system.vercel.app/"
 
 connection
   .sync()
   .then(() => {
     console.log("Tabelas sincronizadas com o banco de dados.");
-    app.listen(port, () => {
+    app.listen(baseurl, () => {
       console.log("Servidor rodando na porta 3001.");
     });
   })
