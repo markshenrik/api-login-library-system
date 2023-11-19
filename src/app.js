@@ -16,6 +16,10 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+return res.json("Hello, world!");
+})
+
 app.post("/sign", async (req, res) => {
   const { login, password } = req.body;
 
@@ -275,7 +279,7 @@ connection
   .then(() => {
     console.log("Tabelas sincronizadas com o banco de dados.");
     app.listen(baseurl, () => {
-      console.log("Servidor rodando na porta 3001.");
+      console.log("Servidor rodando.");
     });
   })
   .catch((error) => {
