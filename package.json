@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "engines": {
+    "node": "19.8.1"
+  },
   "scripts": {
     "start": "node src/app.js",
     "start_dev": "concurrently \"npm run server\" \"npm run client\"",
