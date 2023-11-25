@@ -286,3 +286,6 @@ const PORT = process.env.PORT || 5000
 //     console.error("Falha ao sincronizar tabelas com o banco de dados:", error);
 //   });
 
+app.listen(process.env.PORT, () => {
+  console.log("Servidor rodando na porta: " + process.env.PORT)
+})
