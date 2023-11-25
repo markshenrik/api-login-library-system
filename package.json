@@ -4,11 +4,10 @@
   "description": "",
   "main": "src/app.js",
   "engines": {
-    "node": "19.8.1"
+    "node": "18.x"
   },
   "scripts": {
-    "start": "node src/app.js",
-    "start_dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "client": "cd frontend && npm start",
     "server": "nodemon src/app.js"
   },

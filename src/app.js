@@ -274,15 +274,15 @@ if (!token) return res.status(401).json({ error: "Acesso negado!" });
 //DATABASE
 const PORT = process.env.PORT || 5000
 
-connection
-  .sync()
-  .then(() => {
-    console.log("Tabelas sincronizadas com o banco de dados.");
-    app.listen(PORT, () => {
-      console.log("Servidor rodando.");
-    });
-  })
-  .catch((error) => {
-    console.error("Falha ao sincronizar tabelas com o banco de dados:", error);
-  });
+// connection
+//   .sync()
+//   .then(() => {
+//     console.log("Tabelas sincronizadas com o banco de dados.");
+//     app.listen(PORT, () => {
+//       console.log("Servidor rodando.");
+//     });
+//   })
+//   .catch((error) => {
+//     console.error("Falha ao sincronizar tabelas com o banco de dados:", error);
+//   });
 
