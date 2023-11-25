@@ -271,8 +271,6 @@ if (!token) return res.status(401).json({ error: "Acesso negado!" });
   }
 }
 
-//DATABASE
-const PORT = process.env.PORT || 5000
 
 // connection
 //   .sync()
