@@ -5,6 +5,7 @@ const connection = require("../database/database");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
+const mysql = require('mysql2')
 
 require("dotenv").config();
 const tokenSecret = process.env.TOKEN_SECRET;
@@ -287,3 +288,20 @@ if (!token) return res.status(401).json({ error: "Acesso negado!" });
 app.listen(process.env.PORT, () => {
   console.log("Servidor rodando na porta: " + process.env.PORT)
 })
+
+
+// Create the connection to the database
+const connection = mysql.createConnection(process.env.DATABASE_URL)
+
+// simple query
+connection.query('show tables', function (err, results, fields) {
+  console.log(results) // results contains rows returned by server
+  console.log(fields) // fields contains extra metadata about results, if available
+})
+
+// Example with placeholders
+connection.query('select 1 from dual where ? = ?', [1, 1], function (err, results) {
+  console.log(results)
+})
+
+connection.end()
