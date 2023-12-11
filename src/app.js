@@ -273,35 +273,20 @@ if (!token) return res.status(401).json({ error: "Acesso negado!" });
 }
 
 
-// connection
-//   .sync()
-//   .then(() => {
-//     console.log("Tabelas sincronizadas com o banco de dados.");
-//     app.listen(PORT, () => {
-//       console.log("Servidor rodando.");
-//     });
-//   })
-//   .catch((error) => {
-//     console.error("Falha ao sincronizar tabelas com o banco de dados:", error);
-//   });
-
-app.listen(process.env.PORT, () => {
-  console.log("Servidor rodando na porta: " + process.env.PORT)
-})
+connection
+  .sync()
+  .then(() => {
+    console.log("Tabelas sincronizadas com o banco de dados.");
+    app.listen(process.env.PORT, () => {
+      console.log("Servidor rodando na porta: " + process.env.PORT);
+    });
+  })
+  .catch((error) => {
+    console.error("Falha ao sincronizar tabelas com o banco de dados:", error);
+  });
 
 
-// Create the connection to the database
-const connection = mysql.createConnection(process.env.DATABASE_URL)
-
-// simple query
-connection.query('show tables', function (err, results, fields) {
-  console.log(results) // results contains rows returned by server
-  console.log(fields) // fields contains extra metadata about results, if available
-})
-
-// Example with placeholders
-connection.query('select 1 from dual where ? = ?', [1, 1], function (err, results) {
-  console.log(results)
-})
-
-connection.end()
+// const connectiondb = mysql.createConnection(process.env.DATABASE_URL)
+// console.log('Connected to PlanetScale!')
+// connectiondb.end()
+  
